@@ -45,4 +45,32 @@ describe('Thermostat', function() {
 
   });
 
+  describe('is in power saving mode', function() {
+
+    it('by default', function() {
+      expect(thermostat.powerSave).toEqual(true)
+    });
+
+  });
+
+  describe('can turn off', function() {
+
+    it('power saving mode', function() {
+      thermostat.powerSave = true
+      thermostat.powerSaveOff();
+      expect(thermostat.powerSave).toEqual(false)
+    });
+
+  });
+
+  describe('can be turn on', function() {
+
+    it('power saving mode', function() {
+      thermostat.powerSave = false
+      thermostat.powerSaveOn();
+      expect(thermostat.powerSave).toEqual(true)
+    });
+
+  });
+
 });
