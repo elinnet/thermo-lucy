@@ -9,7 +9,6 @@ Thermostat.prototype.down = function(num) {
   } else {
     this.temp -= num;
   }
-
 };
 
 Thermostat.prototype.up = function(num) {
@@ -26,7 +25,6 @@ Thermostat.prototype.up = function(num) {
       this.temp += num;
     }
   }
-
 };
 
 Thermostat.prototype.powerSaveOff = function() {
@@ -35,4 +33,8 @@ Thermostat.prototype.powerSaveOff = function() {
 
 Thermostat.prototype.powerSaveOn = function() {
   this.powerSave = true;
+};
+
+Thermostat.prototype.reset = function() {
+  this.temp = 20
 };

@@ -92,4 +92,14 @@ describe('Thermostat', function() {
 
   });
 
+  describe('has a reset button', function() {
+
+    it('that make temperature 20', function() {
+      thermostat.temp = 25
+      thermostat.reset();
+      expect(thermostat.temp).toEqual(20);
+    });
+
+  });
+
 });
