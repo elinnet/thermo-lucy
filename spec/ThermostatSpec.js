@@ -56,7 +56,7 @@ describe('Thermostat', function() {
   describe('can turn off', function() {
 
     it('power saving mode', function() {
-      thermostat.powerSave = true
+      thermostat.powerSave = true;
       thermostat.powerSaveOff();
       expect(thermostat.powerSave).toEqual(false)
     });
@@ -66,9 +66,28 @@ describe('Thermostat', function() {
   describe('can be turn on', function() {
 
     it('power saving mode', function() {
-      thermostat.powerSave = false
+      thermostat.powerSave = false;
       thermostat.powerSaveOn();
       expect(thermostat.powerSave).toEqual(true)
+    });
+
+  });
+
+  describe('when in power saving mode', function() {
+
+    it('has a maximum temperature of 25', function() {
+      thermostat.up(6);
+      expect(thermostat.temp).toEqual(25)
+    });
+
+  });
+
+  describe('when not in power saving mode', function() {
+
+    it('has a maximum temperature of 32', function() {
+      thermostat.powerSaveOff();
+      thermostat.up(14);
+      expect(thermostat.temp).toEqual(32);
     });
 
   });
