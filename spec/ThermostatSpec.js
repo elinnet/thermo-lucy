@@ -28,8 +28,14 @@ describe('Thermostat', function() {
   describe('Can increase the temperature', function() {
 
     it('in bulk', function() {
-      thermostat.up(5);
-      expect(thermostat.temp).toEqual(25);
+      thermostat.up(3);
+      expect(thermostat.temp).toEqual(23);
+
+    });
+
+    it('by one', function() {
+      thermostat.up(1);
+      expect(thermostat.temp).toEqual(21);
 
     });
 
@@ -115,6 +121,11 @@ describe('Thermostat', function() {
       thermostat.powerSaveOn();
       expect(thermostat.temp).toEqual(18);
     });
+
+    it('it still starts at 20', function() {
+      thermostat.powerSaveOn();
+      expect(thermostat.temp).toEqual(20);
+    })
 
   });
 
