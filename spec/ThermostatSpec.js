@@ -102,4 +102,14 @@ describe('Thermostat', function() {
 
   });
 
+  describe('if put into power save mode when the temperature', function() {
+
+    it('is above 25 it will reset to 25', function() {
+      thermostat.temp = 29;
+      thermostat.powerSaveOn();
+      expect(thermostat.temp).toEqual(25);
+    });
+
+  });
+
 });
