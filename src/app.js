@@ -11,5 +11,5 @@ document.getElementById("up").onclick=function() {
 
 document.getElementById("down").onclick=function() {
   thermostat.down(amountOfTemp());
-  document.getElementById("temp").innerHTMl = thermostat.temp + '°c';
+  document.getElementById("temp").innerHTML = thermostat.temp + '°c';
 };
