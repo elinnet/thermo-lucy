@@ -13,3 +13,5 @@ Currently all the JavaScript logic has been completed to the following specifica
 * Power saving mode is on by default
 * You can reset the temperature to 20 by hitting the reset button
 * The thermostat should colour the display based on energy usage - < 18 is green, < 25 is yellow, otherwise red
+
+The next task is to create a virtual online thermostat website that uses the JavaScript logic. This will be done using CSS and JQuery. It should have all the same functionality as the original code but be presented in a user friendly manner.
