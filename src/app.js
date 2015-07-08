@@ -5,8 +5,11 @@ var amountOfTemp = function() {
 }
 
 document.getElementById("up").onclick=function() {
-
   thermostat.up(amountOfTemp());
-  console.log(thermostat.temp)
   document.getElementById("temp").innerHTML = thermostat.temp + '°c';
-}
+};
+
+document.getElementById("down").onclick=function() {
+  thermostat.down(amountOfTemp());
+  document.getElementById("temp").innerHTMl = thermostat.temp + '°c';
+};
