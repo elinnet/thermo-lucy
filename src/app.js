@@ -8,6 +8,12 @@ var amountOfTemp = function() {
   };
 };
 
+function tempSetter() {
+  document.getElementById('temp').innerHTML = thermostat.temp + '°c';
+  document.getElementById('temp').style.color = thermostat.colour;
+}
+
+
 document.getElementById("up").onclick=function() {
   thermostat.up(amountOfTemp());
   document.getElementById("temp").innerHTML = thermostat.temp + '°c';
@@ -26,5 +32,13 @@ document.getElementById("power").onchange=function() {
     thermostat.powerSaveOff();
   };
 };
+
+document.getElementById("reset").onclick=function() {
+  thermostat.reset();
+  document.getElementById("temp").innerHTML = thermostat.temp + '°c';
+};
+
+
+
 
 
