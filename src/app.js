@@ -1,8 +1,12 @@
 var thermostat = new Thermostat();
 
 var amountOfTemp = function() {
- return parseInt(document.getElementById("amount").value);
-}
+  if (document.getElementById("amount").value == "") {
+    return 0
+  } else {
+    return parseInt(document.getElementById("amount").value);
+  };
+};
 
 document.getElementById("up").onclick=function() {
   thermostat.up(amountOfTemp());
