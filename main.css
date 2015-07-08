@@ -7,4 +7,9 @@
    margin-left: -150px;
    margin-top: -150px;
    text-align: center;
+   border-style: solid;
+   border-width: medium;
+   border-color: #808080;
+   background-color: #DCDCDC;
+   border-radius: 25px;
 }
