@@ -13,33 +13,33 @@ function amountOfTemp () {
 }
 
 function tempSetter () {
-      $('#temp').html(thermostat.temp + '°c');
-      $('#temp').css('color', thermostat.colour);
+  $('#temp').html(thermostat.temp + '°c');
+  $('#temp').css('color', thermostat.colour);
 }
 
 $('#up').click(function() {
   thermostat.up(amountOfTemp());
   tempSetter();
-});
+})
 
-document.getElementById("down").onclick=function() {
+$('#down').click(function() {
   thermostat.down(amountOfTemp());
   tempSetter();
-};
+})
 
-document.getElementById("power").onchange=function() {
-  if (this.checked) {
+$('#power').change(function() {
+  if ($(this).is(':checked')) {
     thermostat.powerSaveOn();
     tempSetter();
   } else {
     thermostat.powerSaveOff();
   };
-};
+})
 
-document.getElementById("reset").onclick=function() {
+$('#reset').click(function() {
   thermostat.reset();
   tempSetter();
-};
+})
 
 
 
