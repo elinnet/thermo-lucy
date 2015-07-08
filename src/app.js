@@ -2,24 +2,25 @@ var thermostat = new Thermostat();
 
 tempSetter();
 
-var amountOfTemp = function() {
-  if (document.getElementById("amount").value == "") {
-    return 0
-  } else {
-    return parseInt(document.getElementById("amount").value);
-  };
-};
 
-function tempSetter() {
-  document.getElementById('temp').innerHTML = thermostat.temp + '°c';
-  document.getElementById('temp').style.color = thermostat.colour;
+function amountOfTemp () {
+  if ( $('#amount').val() === '' ){
+    return 0;
+  }
+  else {
+    return parseInt($( '#amount' ).val());
+  }
 }
 
+function tempSetter () {
+      $('#temp').html(thermostat.temp + '°c');
+      $('#temp').css('color', thermostat.colour);
+}
 
-document.getElementById("up").onclick=function() {
+$('#up').click(function() {
   thermostat.up(amountOfTemp());
   tempSetter();
-};
+});
 
 document.getElementById("down").onclick=function() {
   thermostat.down(amountOfTemp());
@@ -39,6 +40,7 @@ document.getElementById("reset").onclick=function() {
   thermostat.reset();
   tempSetter();
 };
+
 
 
 
