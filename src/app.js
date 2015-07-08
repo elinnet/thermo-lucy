@@ -1,5 +1,7 @@
 var thermostat = new Thermostat();
 
+tempSetter();
+
 var amountOfTemp = function() {
   if (document.getElementById("amount").value == "") {
     return 0
@@ -16,18 +18,18 @@ function tempSetter() {
 
 document.getElementById("up").onclick=function() {
   thermostat.up(amountOfTemp());
-  document.getElementById("temp").innerHTML = thermostat.temp + '°c';
+  tempSetter();
 };
 
 document.getElementById("down").onclick=function() {
   thermostat.down(amountOfTemp());
-  document.getElementById("temp").innerHTML = thermostat.temp + '°c';
+  tempSetter();
 };
 
 document.getElementById("power").onchange=function() {
   if (this.checked) {
     thermostat.powerSaveOn();
-    document.getElementById("temp").innerHTML = thermostat.temp + '°c';
+    tempSetter();
   } else {
     thermostat.powerSaveOff();
   };
@@ -35,7 +37,7 @@ document.getElementById("power").onchange=function() {
 
 document.getElementById("reset").onclick=function() {
   thermostat.reset();
-  document.getElementById("temp").innerHTML = thermostat.temp + '°c';
+  tempSetter();
 };
 
 
