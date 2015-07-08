@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <script type="text/javascript" src="src/Thermostat.js"></script>
-</head>
 
-<body>
-  <h1 id = "temp">20°c</h1>
-  <div id = "buttons">
-    <input id="amount" type="text" name="value">
-    <button id="up" type="button">+</button>
-    <button id ="down" type="button">-</button>
-  </div>
-<script type="text/javascript" src="src/app.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8">
+  </head>
 
+    <body>
+
+      <h1 id = "temp">20°c</h1>
+
+      <div id = "buttons">
+
+        <input id="amount" type="text">
+        <br>
+        <br>
+        <button id="up" type="button">+</button>
+        <button id="down" type="button">-</button>
+        <br>
+        <br>
+        Power Saving Mode <input id="power" type="checkbox" checked="checked">
+      </div>
+
+      <script type="text/javascript" src="src/Thermostat.js"></script> 
+      <script type="text/javascript" src="src/app.js"></script>
+    </body>
 </html>

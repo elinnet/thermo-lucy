@@ -13,3 +13,14 @@ document.getElementById("down").onclick=function() {
   thermostat.down(amountOfTemp());
   document.getElementById("temp").innerHTML = thermostat.temp + '°c';
 };
+
+document.getElementById("power").onchange=function() {
+  if (this.checked) {
+    thermostat.powerSaveOn();
+    document.getElementById("temp").innerHTML = thermostat.temp + '°c';
+  } else {
+    thermostat.powerSaveOff();
+  };
+};
+
+

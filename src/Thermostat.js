@@ -16,13 +16,13 @@ Thermostat.prototype.down = function(num) {
 Thermostat.prototype.up = function(num) {
   if(this.powerSave) {
     if(this.temp + num > 25) {
-      this.temp = 25
+      this.temp = 25;
     } else {
       this.temp += num;
     }
   } else {
     if(this.temp + num > 32) {
-      this.temp = 32
+      this.temp = 32;
     } else {
       this.temp += num;
     };
@@ -41,13 +41,13 @@ Thermostat.prototype.powerSaveOn = function() {
 };
 
 Thermostat.prototype.reset = function() {
-  this.temp = 20
+  this.temp = 20;
   this._changeDisplay();
 };
 
 Thermostat.prototype._powerSaveReset = function() {
   if (this.temp > 25) {
-    this.temp = 25
+    this.temp = 25;
   };
 };
 
@@ -59,6 +59,6 @@ Thermostat.prototype._changeDisplay = function() {
     this.colour = 'Yellow';
   };
   if(this.temp >= 25) {
-    this.colour = 'Red'
+    this.colour = 'Red';
   };
 };
