@@ -1,20 +1,23 @@
 .center {
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
   position: absolute;
   left: 50%;
-  top: 50%; 
-  margin-left: -150px;
-  margin-top: -150px;
+  top: 48%; 
+  margin-left: -250px;
+  margin-top: -250px;
   text-align: center;
   border-style: ridge;
-  border-width: 10px;
-  border-color: #989898;
-  background-color: #E0E0E0;
+  border-width: 20px;
+  border-color: #8585AD;
+  background-color: #E0E0EB;
   border-radius: 25px;
   font-family: "Courier New", "Monospace";
   font-size: 20px;
-  font-style: normal;
+}
+
+.temp {
+  font-size: 60px;
 }
 
 .up_button {
@@ -22,7 +25,8 @@
   height: 50px;
   border-radius: 25px;
   font-size: 30px;
-  background-color: #F8F8F8;
+  background-color: #F0F0F5;
+  border-style: none;
 }
 
 .down_button {
@@ -30,13 +34,28 @@
   height: 50px;
   border-radius: 25px;
   font-size: 30px;
-  background-color: #F8F8F8;
+  background-color: #F0F0F5;
+  border-style: none;
 }
 
 .reset_button {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 25px;
   font-size: 15px;
-  background-color: #F8F8F8;
+  background-color: #F0F0F5;
+  border-style: none;
+  font-size: 25px;
+}
+
+.input {
+  width: 250px;
+  height: 20px;
+  border-radius: 8px;
+  border-style: none;
+}
+
+.power {
+  width: 16px;
+  height: 16px;
 }
