@@ -40,7 +40,7 @@ $('#reset').click(function() {
   tempSetter();
 })
 
-$('#city').change(function(){
+$('#city').change(function() {
 
   var selectedCity = $('#city option:selected').text();
 
@@ -48,7 +48,17 @@ $('#city').change(function(){
   $('#local_temp').html(data.main.temp);
   })
 
-});
+})
+
+$('#city').ready(function() {
+
+  var selectedCity = $('#city option:selected').text();
+
+  $.getJSON( "http://api.openweathermap.org/data/2.5/weather?q=" + selectedCity + "&units=metric&APPID=cf56b5a4d6ffa0492ddf9aef9f01e701", function( data ) {
+  $('#local_temp').html(data.main.temp);
+    })
+
+})
 
 
 
