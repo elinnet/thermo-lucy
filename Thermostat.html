@@ -24,10 +24,23 @@
         </div>
         <br>
         <div id="api">
-          London Weather:<p id="local_temp"></p>
+          Local Weather:
+          <p id="local_temp">
+            <fieldset class="fieldset">
+              <label class="label" for="weather">Choose a city</label>
+              <select class="city" id="city">
+                <option selected="selected">London</option>
+                <option>Nice</option>
+                <option>Sydney</option>
+                <option>Paris</option>
+                <option>Toronto</option>
+              </select>
+            </fieldset>
+          </p>
         </div>
     </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
       <script type="text/javascript" src="src/Thermostat.js"></script> 
       <script type="text/javascript" src="src/app.js"></script>
     </body>
