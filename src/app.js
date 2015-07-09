@@ -2,7 +2,6 @@ var thermostat = new Thermostat();
 
 tempSetter();
 
-
 function amountOfTemp () {
   if ( $('#amount').val() === '' ){
     return 0;
@@ -40,9 +39,3 @@ $('#reset').click(function() {
   thermostat.reset();
   tempSetter();
 })
-
-
-
-
-
-

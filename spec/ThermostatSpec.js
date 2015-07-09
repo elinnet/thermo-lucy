@@ -1,4 +1,4 @@
-describe('Thermostat', function() {
+describe('The thermostat', function() {
 
   var thermostat;
 
@@ -6,204 +6,151 @@ describe('Thermostat', function() {
     thermostat = new Thermostat();
   });
 
-  describe('Can display it\'s', function() {
+  describe('has a temperature', function() {
 
-    it('starting temperature', function() {
+    it('with a starting default of 20', function() {
       expect(thermostat.temp).toEqual(20);
-
     });
 
-  });
-
-  describe('Can decrease the temperature', function() {
-
-    it('in bulk', function() {
+    it('that can be decreased in bulk', function() {
       thermostat.down(5);
       expect(thermostat.temp).toEqual(15);
-
     });
 
-  });
-
-  describe('Can increase the temperature', function() {
-
-    it('in bulk', function() {
+    it('that can be increased in bulk', function() {
       thermostat.up(3);
       expect(thermostat.temp).toEqual(23);
-
     });
 
-    it('by one', function() {
+    it('that can be increased by one', function() {
       thermostat.up(1);
       expect(thermostat.temp).toEqual(21);
-
     });
 
-  });
-
-  describe('Has a minimum', function() {
-
-    it('temperature of 10', function() {
+    it('minimum of 10', function() {
       thermostat.down(11);
       expect(thermostat.temp).toEqual(10);
-
     });
 
   });
 
-  describe('Is in power save mode', function() {
+  describe('has a power save mode', function() {
 
-    it('by default', function() {
+    it('which is on by default', function() {
       expect(thermostat.powerSave).toEqual(true)
     });
 
-  });
-
-  describe('Can turn off', function() {
-
-    it('power save mode', function() {
+    it('that can be turned off', function() {
       thermostat.powerSave = true;
       thermostat.powerSaveOff();
       expect(thermostat.powerSave).toEqual(false)
     });
 
-  });
-
-  describe('Can be put into', function() {
-
-    it('power save mode', function() {
+    it('that can be turned on', function() {
       thermostat.powerSave = false;
       thermostat.powerSaveOn();
       expect(thermostat.powerSave).toEqual(true)
     });
 
-  });
-
-  describe('When thermostat is in power saving mode', function() {
-
-    it('it has a maximum temperature of 25', function() {
+    it('which sets a maximum temperature of 25', function() {
       thermostat.up(6);
       expect(thermostat.temp).toEqual(25)
     });
 
-  });
-
-  describe('When thermostat is not in power saving mode', function() {
-
-    it('it has a maximum temperature of 32', function() {
+    it('which when turned off has a maximum temperature of 32', function() {
       thermostat.powerSaveOff();
       thermostat.up(14);
       expect(thermostat.temp).toEqual(32);
     });
 
-  });
-
-  describe('Has a reset button', function() {
-
-    it('that makes the temperature 20', function() {
-      thermostat.temp = 25
-      thermostat.reset();
+    it('by default and still start at 20 degrees', function() {
+      thermostat.powerSaveOn();
       expect(thermostat.temp).toEqual(20);
     });
 
   });
 
-  describe('If thermostat is put into power save mode', function() {
+  describe('when put into power save mode', function() {
 
-    it('when above 25 degrees it will reset to 25 degrees', function() {
+    it('and the temperature is above 25 degrees will reset to 25 degrees', function() {
       thermostat.temp = 29;
       thermostat.powerSaveOn();
       expect(thermostat.temp).toEqual(25);
     });
 
-    it('when at 18 degrees it will stay at 18 degrees', function() {
+    it('and the temperature is below 25 degrees will stay at the current temperature', function() {
       thermostat.temp = 18;
       thermostat.powerSaveOn();
       expect(thermostat.temp).toEqual(18);
     });
 
-    it('it still starts at 20', function() {
-      thermostat.powerSaveOn();
-      expect(thermostat.temp).toEqual(20);
-    })
-
   });
 
-  describe('When the tempterature is less than', function() {
+  describe('has a display screen', function() {
 
-    it('18 degrees display is green', function() {
+    it('which is green if the temperature is below 18 degrees', function() {
       thermostat.temp = 17;
       thermostat._changeDisplay();
       expect(thermostat.colour).toEqual('Green');
     });
-  
-  });
 
-  describe('When the tempterature is between', function() {
-
-    it('18 and 24 display is yellow', function() {
+    it('which is yellow if the temperature is between 18 and 24 degrees', function() {
       thermostat._changeDisplay();
       expect(thermostat.colour).toEqual('Yellow');
     });
-  
-  });
 
-  describe('When the tempterature is over', function() {
-
-    it('25 degrees, display is red', function() {
+    it('which is red if the temperature is over 25 degrees', function() {
       thermostat.temp = 26;
       thermostat._changeDisplay();
       expect(thermostat.colour).toEqual('Red');
     });
 
-  });
-
-  describe('When tempterature is lowered', function() {
-
-    it('to 17 degrees or below it will change display to "Green"', function() {
+    it('that will change to "Green" when the temperature is lowered from 20 to 17 degrees', function() {
       thermostat.down(3);
       expect(thermostat.colour).toEqual('Green');
     });
 
-    it('to 25 to 24 it will change display to "Yellow"', function() {
+    it('that will change to "Yellow" when the temperature is lowered from 25 to 24 degrees', function() {
       thermostat.temp = 25;
       thermostat.down(1);
       expect(thermostat.colour).toEqual('Yellow');
     });
 
-  });
-
-  describe('When the temperature is increased', function() {
-
-    it('from 17 to 18 degrees it will change display to "Yellow"', function() {
+    it('that will change to "Yellow" when the temperature is raised from 17 to 18 degrees', function() {
       thermostat.temp = 17;
       thermostat.colour = 'Green';
       thermostat.up(1);
       expect(thermostat.colour).toEqual('Yellow');
     });
 
-    it('from 20 to 25 degrees it will change display to "Red"', function() {
+    it('that will change to "Red" when the temperature is raised from 20 to 25', function() {
       thermostat.up(5);
       expect(thermostat.colour).toEqual('Red');
     });
 
-    it('from 17 to 27 degrees it will change display from "Green" to "Red"', function() {
+    it('that will change from "Green" to "Red" from the temperature is raised from 17 to 27', function() {
       thermostat.up(10);
       expect(thermostat.colour).toEqual('Red');
     });
 
   });
 
-  describe('When you press the reset button', function() {
+  describe('has a reset button', function() {
 
-    it('and it changes from 25 to 20 degrees, display will turn "Yellow"', function() {
+      it('that makes the temperature 20', function() {
+      thermostat.temp = 25
+      thermostat.reset();
+      expect(thermostat.temp).toEqual(20);
+    });
+
+    it('which when pressed will change from 25 to 20 degrees and the display will turn "Yellow"', function() {
       thermostat.temp = 25;
       thermostat.colour = 'Red';
       thermostat.reset();
       expect(thermostat.colour).toEqual('Yellow');
     });
 
-    it('and it changes from 14 to 20 degrees, display will turn "Yellow"', function() {
+    it('which when pressed will change from 14 to 20 degrees and the display will turn "Yellow"', function() {
       thermostat.temp = 14;
       thermostat.colour = 'Green';
       thermostat.reset();
