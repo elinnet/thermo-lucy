@@ -40,7 +40,7 @@ $('#reset').click(function() {
   tempSetter();
 })
 
-$.getJSON( "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=cf56b5a4d6ffa0492ddf9aef9f01e701", function( data ) {
+$.getJSON( "http://api.openweathermap.org/data/2.5/weather?q=London,uk&units=metric&APPID=cf56b5a4d6ffa0492ddf9aef9f01e701", function( data ) {
   console.log(data);
   console.log(data.main.temp);
   $('#local_temp').html(data.main.temp);
